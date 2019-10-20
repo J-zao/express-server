@@ -1,9 +1,14 @@
+//require express
+
 const express = require('express');
+
+//create object and add port
 
 const app = express();
 
-const port = 8080;
+const port = process.env.port | 8080;
 
+//Create server to listen on port
 app.listen(port, (err) => {
     if (err){
         throw err;
@@ -12,10 +17,10 @@ app.listen(port, (err) => {
     
 });
 
-//http://localhost:8080
+//Defind default route with express(  http://localhost:8080)
 
 app.get('/', (req, res) =>{
-    res.end("You are assessing my assignment!!");
+    res.sendFile(__dirname + '/login.html');
 });
 
 //http://localhost:8080/login
@@ -27,3 +32,25 @@ app.post('/login', (req, res) => {
 app.get('/users', (req, res) =>{
 res.json(['Lemy', 'Jack', 'Nash', 'Josh']);
 });
+
+app.get('/products', (req, res) => {
+    fs.readFile('./products.json', (err, data) => {
+        if (err)
+             console.log("Error while reading json file")
+        res.json(JSON.parse(data));
+    })
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+

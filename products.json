@@ -1,0 +1,11 @@
+{
+    "products":
+    [
+        {"name": "iphone10",  "brand": "Iphone"},
+        {"name": "iphone8",  "brand": "Iphone"},
+        {"name": "S8",  "brand": "Samsung"},
+        {"name": "S7",  "brand": "Samsung"},
+         
+    ]
+    
+}
